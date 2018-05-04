@@ -1,0 +1,121 @@
+$xl: 1000px; /* large width*/
+$md: 500px;  /* middle width */
+$lmain: 60%;    /* large main width */
+$mmain: 70%;     /* middle main width */
+
+.gallery {
+  position: relative;
+  margin: 0 auto;
+}
+
+.gallery:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.gallery__left,
+.gallery__right,
+.gallery__main {
+  float: left;
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+.gallery__main:after {
+  clear: both;
+  display: block;
+  content: '';
+}
+
+.gallery__left__img,
+.gallery__right__img {
+  width: 100%;
+}
+
+.gallery__left img,
+.gallery__right img,
+.gallery__main__img img {
+  width: 100%;
+  display: block;
+}
+
+.gallery__main__img {
+  float: left;
+  margin-bottom: 2%;
+}
+
+@media (max-width: $md - 1px){
+    .gallery__main__img {
+      width: 48%;
+    }
+    .gallery__main__img:not(:nth-child(2n)) {
+      margin-right: 4%;
+    }
+}
+
+@media (min-width: $md) and (max-width: $xl - 1px) {
+
+  .gallery__left,
+  .gallery__right {
+    width: (100% - $mmain) - 1.5%;
+    margin-right: 1.5%;
+  }
+
+  .gallery__main {
+    float: right;
+    width: $mmain;
+  }
+
+  .gallery__main__img {
+    width: 32%;
+  }
+  .gallery__main__img:not(:nth-child(3n)){
+    margin-right: 2%;
+  }
+
+  .gallery__main__img:nth-child(3n + 1) {
+    clear: both;
+  }
+}
+
+@media (min-width: $xl) {
+
+  .gallery__left,
+  .gallery__right {
+    position: absolute;
+    width:(100% - $lmain) / 2 - 1.5%;
+  }
+
+  .gallery__left {
+    top: 0;
+    left: 0;
+    margin-right: 1.5%;
+  }
+
+  .gallery__right {
+    top: 0;
+    right: 0;
+    margin-left: 1.5%;
+  }
+
+  .gallery__main {
+    float: none;
+    width: $lmain;
+    margin: 0 auto;
+  }
+
+  .gallery__main__img {
+    clear: none;
+    width: 24%;
+  }
+  .gallery__main__img:not(:nth-child(4n)) {
+    margin-right: 1.3333%;
+  }
+  .gallery__main__img:nth-child(4n + 1) {
+    clear: both;
+  }
+}
+
+
+
